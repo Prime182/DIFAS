@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            /* min-height: 100vh; */
+            /* height: 100%; */
+            /* width: 100%; */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            background-color: #121212;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* overflow-y: scroll; */
+            color: #FFFFFF;
+            font-family: "Varela", sans-serif;
+            font-weight: 400;
+            font-style:normal;
+        }
+
+        .container-wrapper {
+            height: 97%;
+            width: 98%;
+            display: flex;
+            /* position: relative; */
+            /* overflow: hidden; */
+            max-height: 95%;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1%; /* Space between the containers */
+            /* margin-top: 5px; */
+        }
+        .container{
+            height: 97%;
+            max-height: 97%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            max-width: 14.10%;
+            width: 14.10%;
+            margin: 0 0 0 0;
+            /* position: fixed; */
+            background-color: #121212;
+            /* background-image: linear-gradient(#404040, #282828); */
+            /* padding: 20px; */
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); */
+            font-family: "arial", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            font-size: 15px;
+                }
+        .container2 {
+            height: 97%;
+            max-height: 97%;
+            padding: 0%;
+            margin: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            max-width: 85.90%;
+            width: 85.90%;
+            /* background-color: #181818; */
+            background-image: linear-gradient(#404040, #282828);
+            /* padding-bottom: 20px;                                       To prevent the last container from being hidden */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            /* overflow-y: scroll; */
+        }
+        .container2 .container-wrapper2 {
+            height: 95%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0%;
+            /* position: fixed; */
+            padding: 0%;
+            gap: 0.25%;
+            overflow-y: scroll;
+        }
+
+        .container2 .container-wrapper2::-webkit-scrollbar {
+            width: 5px; /* width of the scrollbar */
+        }
+
+        .container2 .container-wrapper2::-webkit-scrollbar-track {
+            background: #f1f1f1; /* background color of the track */
+            border-radius: 10px; /* roundness of the scrollbar */
+        }
+
+        .container2 .container-wrapper2::-webkit-scrollbar-thumb {
+            background: #888; /* color of the scroll thumb */
+            border-radius: 10px; /* roundness of the scroll thumb */
+        }
+
+        .container2 .container-wrapper2::-webkit-scrollbar-thumb:hover {
+            background: #555; /* color of the scroll thumb on hover */
+        }
+        
+        .container2 .container-wrapper2 .container3{
+            height: 1250px;
+            width: 55%;
+            max-width: 55%;
+            max-height: 2000px;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .container2 .container-wrapper2 .container4{
+            height: 1230px;
+            width: 45%;
+            max-width: 40%;
+            max-height: 2000px;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .container2 .container-wrapper2 .container3 iframe {
+            width: 100%;
+            height: 500px;
+            max-height: 500px;
+            margin: 0%;
+            /* border: none; */
+            /* border: 1px solid black; */
+            
+            /* border-radius: 10px; */
+            padding: 0%;
+            /* position: relative; */
+        }
+
+        .container2 .container-wrapper2 .container4 iframe {
+            width: 100%;
+            height: 300px;
+            max-height: 300px;
+            margin: 0%;
+            /* border: none; */
+            /* border: 1px solid black; */
+            
+            /* border-radius: 10px; */
+            padding: 0%;
+            /* position: relative; */
+        }
+
+        .container2 .container-wrapper2 .container3 img {
+            width: 95%;
+            height: 400px;
+            max-height: 400px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 0%;
+            /* position: relative; */
+        }
+
+        .container2 .container-wrapper2 .container4 img {
+            width: 95%;
+            height: 300px;
+            min-height: 300px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 0%;
+            /* position: relative; */
+        }
+
+        h2 {
+            margin: 0%;
+            margin-left: 15.10%;
+            /* display: flex; */
+            /* justify-content: start; */
+            text-align: center;
+            /* height: 2%; */
+            padding: 0.5%;
+        }
+        .container .input-group {
+            margin: 0 0 10px 0;
+            padding-right: 10px;
+            width: 100%;
+            /* align-items: start; */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            /* font-size: 15px; */
+        }
+        input{
+            width: 100%;
+            padding: 5px;
+            /* margin-right: 40px; */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* text-align: center; */
+            /* font-size: 15px; */
+        }
+        button {
+            margin: 0%;
+            width: 100%;
+            padding: 5px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            /* font-size: 15px; */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        img {
+            display: none;
+            /* margin-top: 20px; */
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .alert, .message {
+            margin-top: 15px;
+            padding: 7px;
+            /* background-color: #ffcc00; */
+            background-color:#181818;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+            font-size: small;
+        }
+        .alert{
+            padding: 2px;
+        }
+        .message {
+            margin: 0%;
+            margin-top: 15px;
+            overflow-y: scroll;
+            padding-top: 0px;
+            padding-bottom: 15px;
+            border-radius: 8px;
+            /* padding-right: 40px; */
+            /* padding-left: 40px; */
+            max-width: 100%;
+            /* margin-bottom: 20px; */
+            background-color: #181818;
+            color: #FFFFFF;
+        }
+
+        /* Webkit Scrollbar Styles */
+        .message::-webkit-scrollbar {
+            width: 5px; /* width of the scrollbar */
+        }
+
+        .message::-webkit-scrollbar-track {
+            background: #f1f1f1; /* background color of the track */
+            border-radius: 10px; /* roundness of the scrollbar */
+        }
+
+        .message::-webkit-scrollbar-thumb {
+            background: #888; /* color of the scroll thumb */
+            border-radius: 10px; /* roundness of the scroll thumb */
+        }
+
+        .message::-webkit-scrollbar-thumb:hover {
+            background: #555; /* color of the scroll thumb on hover */
+        }
+
+    </style>
+</head>
+<body>
+<h2>Discomfort index forecast and alert system</h2>
+<div class="container-wrapper">
+    <div class="container">
+        <div class="input-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Enter your location">
+        </div>
+        
+        <div class="input-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+        </div>
+        
+        <button onclick="getForecast()">Get Forecast</button>
+        
+        <div class="alert" id="alert" style="display: none;"></div>
+        <div class="message" id="msg" style="display: none;"></div>
+        <div id="rSquared" class="message" style="display: none;"></div>
+
+    </div>
+
+    <div id="container2" class="container2" style="justify-content: center;">
+        <h3 id="analysisTextbox" style="display: block; color: #b3b3b3;">Forecast to see the analysis</h3>
+        <div id="container-wrapper2" class="container-wrapper2" style="display: none;">
+            <div class="container3">
+                <img id="diPlot" alt="DI Plot" style="display: none;">
+                <iframe id="heatmapPlotFrame" frameborder="0" style="display: none;"></iframe>
+            </div>
+            <div class="container4">
+                <iframe id="tsPlotFrame" frameborder="0" style="display: none;"></iframe>
+                <iframe id="histogramPlotFrame" frameborder="0" style="display: none;"></iframe>
+                <img id="discomfortLevels" alt="" style="display: none;">
+            </div>
+        </div>
+        
+        <!-- <h3 id="textbox" style="display: block;">Forecast to see the trend...</h3>
+        <h3 id="plotHeader" style="display: none;">Discomfort index trend</h3> -->
+    </div>
+</div>
+
+<script>
+    function getForecast() {
+        const location = document.getElementById('location').value;
+        const phone = document.getElementById('phone').value;
+        document.getElementById('diPlot').style.display = 'none';
+        document.getElementById('msg').style.display = 'none';
+        document.getElementById('alert').style.display = 'none';
+        document.getElementById('container-wrapper2').style.display = 'none';
+        document.getElementById('container2').style.justifyContent = 'center';
+        document.getElementById('analysisTextbox').textContent = 'Forecasting...';
+        // document.getElementById('plotHeader').style.display = 'none';
+        // document.getElementById('textbox').textContent = 'Forecasting...';
+        // document.getElementById('textbox').style.display = 'block';
+        if (!location || !phone) {
+            showAlert('Please enter both location and phone number.');
+            return;
+        }
+
+        fetch('/get_forecast', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ location: location, phone: phone })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.error) {
+                showAlert(data.error);
+            } else {
+                document.getElementById('container2').style.justifyContent = 'start';
+                document.getElementById('analysisTextbox').style.color = '#FFFFFF';
+                document.getElementById('analysisTextbox').textContent = `Forecast analysis for ${data.location}`;
+                document.getElementById('container-wrapper2').style.display = 'flex';
+                document.getElementById('diPlot').src = `/static/${data.di_plot_file}`;
+                document.getElementById('diPlot').style.display = 'block';
+                // document.getElementById('textbox').style.display = 'none';
+                // document.getElementById('plotHeader').style.display = 'block';
+                document.getElementById('heatmapPlotFrame').src = `/static/${data.heatmap_file}`;
+                document.getElementById('heatmapPlotFrame').style.display = 'block';
+                document.getElementById('tsPlotFrame').src = `/static/${data.ts_plot_file}`;
+                document.getElementById('tsPlotFrame').style.display = 'block';
+                document.getElementById('histogramPlotFrame').src = `/static/${data.histogram_file}`;
+                document.getElementById('histogramPlotFrame').style.display = 'block';
+                document.getElementById('discomfortLevels').src = `/static/${data.discomfort_levels_forecast_file}`;
+                document.getElementById('discomfortLevels').style.display = 'block';
+                showAlert(data.sms_status);
+                
+                const formattedMessage = data.sms_message
+                .replace(/No discomfort expected at the following hours:/g, '<br><strong>No discomfort expected at the following hours:</strong><br>')
+                .replace(/Mild discomfort expected at the following hours:/g, '<br><strong>Mild discomfort expected at the following hours:</strong><br>')
+                .replace(/Moderate discomfort expected at the following hours:/g, '<br><strong>Moderate discomfort expected at the following hours:</strong><br>')
+                .replace(/Severe discomfort expected at the following hours:/g, '<br><strong>Severe discomfort expected at the following hours:</strong><br>')
+                .replace(/, /g, '<br>')
+                .replace(/.\n/g, '<br><hr>');
+                showMsg(formattedMessage);
+                 // Display the R-squared value in the new div
+                const rSquaredDiv = document.getElementById('rSquared');
+                rSquaredDiv.innerHTML = `<strong>R-squared value:</strong> ${data.r_squared}`;
+                rSquaredDiv.style.display = 'block';
+            }
+        })
+        .catch(error => showAlert('An error occurred: ' + error.message));
+    }
+
+    function showAlert(message) {
+        const alertBox = document.getElementById('alert');
+        alertBox.textContent = message;
+        alertBox.style.display = 'block';
+    }
+
+    function showMsg(message) {
+        const msgBox = document.getElementById('msg');
+        msgBox.innerHTML = message;
+        msgBox.style.display = 'block';
+    }
+</script>
+</body>
+</html>
